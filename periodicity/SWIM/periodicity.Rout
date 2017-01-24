@@ -1,0 +1,44 @@
+
+R version 3.1.1 (2014-07-10) -- "Sock it to Me"
+Copyright (C) 2014 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R é um software livre e vem sem GARANTIA ALGUMA.
+Você pode redistribuí-lo sob certas circunstâncias.
+Digite 'license()' ou 'licence()' para detalhes de distribuição.
+
+R é um projeto colaborativo com muitos contribuidores.
+Digite 'contributors()' para obter mais informações e
+'citation()' para saber como citar o R ou pacotes do R em publicações.
+
+Digite 'demo()' para demonstrações, 'help()' para o sistema on-line de ajuda,
+ou 'help.start()' para abrir o sistema de ajuda em HTML no seu navegador.
+Digite 'q()' para sair do R.
+
+[Área de trabalho anterior carregada]
+
+> suppressMessages(library(splines))
+> 
+> 
+> 
+> bla = read.csv("ict.csv",head=F)
+> a = hist(bla$V1,breaks = seq(0,max(bla$V1),by=1))
+> png("periodicity.png")
+> plot(a$mids,a$density,type="l",xlim = c(0,400), xlab = "Time(h)", ylab="Frequency of group reencounters")
+> abline(v=seq(24,720,by=24),lty=3,col="red",lwd=1)
+> abline(v=seq(7*24+2,720,by=7*24),lty=2,col="green",lwd=1)
+> dev.off()
+pdf 
+  2 
+> 
+> png("auto_corr.png")
+> acf(a$density, lag.max = 400,xlab="lag (h)",ylab="Auto-Correlation Function", main="")
+> abline(v=seq(24,720,by=24),lty=3,col="red",lwd=1)
+> abline(v=seq(7*24+2,720,by=7*24),lty=2,col="green",lwd=1)
+> dev.off()
+pdf 
+  2 
+> 
+> proc.time()
+  usuário   sistema decorrido 
+    0.232     0.016     0.245 

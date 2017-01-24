@@ -1,0 +1,74 @@
+
+R version 3.1.1 (2014-07-10) -- "Sock it to Me"
+Copyright (C) 2014 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R é um software livre e vem sem GARANTIA ALGUMA.
+Você pode redistribuí-lo sob certas circunstâncias.
+Digite 'license()' ou 'licence()' para detalhes de distribuição.
+
+R é um projeto colaborativo com muitos contribuidores.
+Digite 'contributors()' para obter mais informações e
+'citation()' para saber como citar o R ou pacotes do R em publicações.
+
+Digite 'demo()' para demonstrações, 'help()' para o sistema on-line de ajuda,
+ou 'help.start()' para abrir o sistema de ajuda em HTML no seu navegador.
+Digite 'q()' para sair do R.
+
+[Área de trabalho anterior carregada]
+
+> 
+> #bla = read.csv("group_size_mit.csv", head = F) 
+> bla = read.csv("../teste.csv", head = F) 
+> #print(min(bla$V1))
+> 
+> lambda = 1/mean(bla$V1)
+> kkk = hist(bla$V1,breaks=seq(0,max(bla$V1)+3600,by=3600))
+> 
+> print(1/lambda)
+[1] 13979.69
+> 
+> bla2 = read.csv("../teste.csv", head = F)
+> kkk2 = hist(bla2$V1,breaks = seq(0,max(bla2)+3600,by=3600))
+> 
+> a = kkk$density
+> b = kkk2$density
+> 
+> png("group_size1.png")
+> plot(kkk$mids,a,main="PDF",xlab="Group Size")
+> lines(kkk2$mids,b,col="red",lwd=3)
+> dev.off()
+pdf 
+  2 
+> 
+> a = cumsum(kkk$density)
+> b = cumsum(kkk2$density)
+> 
+> png("group_size3.png")
+> plot(kkk$mids,a,main="CDF",xlab="Group Size",type="l")
+> lines(kkk2$mids,b,col="red",lwd=3)
+> dev.off()
+pdf 
+  2 
+> 
+> a = 1-cumsum(kkk$density)
+> b = 1-cumsum(kkk2$density)
+> 
+> png("group_size2.png")
+> plot(kkk$mids,a, main="ECCDF Dartmouth",log="xy",xlab="Group Size",type="l")
+> lines(kkk2$mids,b,col="red",lwd=2)
+> dev.off()
+pdf 
+  2 
+> 
+> require("poweRlaw")
+Carregando pacotes exigidos: poweRlaw
+Mensagens de aviso perdidas:
+replacing previous import by ‘splines::splineDesign’ when loading ‘VGAM’ 
+> 
+> moby = round(bla$V1 +1)
+> m_pl = displ$new(moby)
+> pars = estimate_pars(m_pl)
+> est = estimate_xmin(m_pl)
+
+Execução interrompida

@@ -1,0 +1,34 @@
+
+R version 3.1.1 (2014-07-10) -- "Sock it to Me"
+Copyright (C) 2014 The R Foundation for Statistical Computing
+Platform: i686-pc-linux-gnu (32-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> bla = read.csv("samples.csv",head=F)
+> a = hist(bla$V1,seq(min(bla$V1),max(bla$V1)+1,by=1), xlim=c(0,500))
+> png("synth_periodicity.png")
+> plot(a$mids,a$density,type="l", xlim=c(0,384), ylim=c(0,0.007) ,xlab = "Time (h)",ylab="Frequency of groups reencounters")
+> abline(v = seq(from=24, to=384, by=24),col="red",lty=3,lwd=1)
+> abline(v=c(171,168+171),col="green",lty=5,lwd=1)
+> dev.off()
+pdf 
+  2 
+> 
+> proc.time()
+   user  system elapsed 
+  0.304   0.020   0.312 

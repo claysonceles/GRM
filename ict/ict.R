@@ -1,0 +1,15 @@
+
+bla = read.csv("ict.csv", head = F) 
+kkk = hist(bla$V1,breaks=seq(0,max(bla$V1)+60,by=60))
+a3 = 1-cumsum(kkk$counts/sum(kkk$counts))
+
+bla2 = read.csv("ict_real.csv", head = F) 
+kkk2 = hist(bla2$V1,breaks=seq(0,max(bla2$V1)+60,by=60))
+a4 = 1-cumsum(kkk2$counts/sum(kkk2$counts))
+
+
+png("pl_fit.png")
+plot(kkk2$mids,a4,log="xy",xlab="Inter-Contact Time",col="red",ylab="P[X>x]",xlim = c(1,1000000000),ylim=c(0.00000001,1))
+points(kkk$mids,a3,pch=2)
+legend("topright", c("Dartmouth","GRM"),col = c("red","black"), pch=c(1,1))
+dev.off()

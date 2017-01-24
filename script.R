@@ -1,0 +1,7 @@
+bla = read.csv("samples.csv",head=F)
+a = hist(bla$V1,seq(min(bla$V1),max(bla$V1)+1,by=1), xlim=c(0,500))
+png("synth_periodicity.png")
+plot(a$mids,a$density,type="l", xlim=c(0,384), ylim=c(0,0.007) ,xlab = "Time (h)",ylab="Frequency of groups reencounters")
+abline(v = seq(from=24, to=384, by=24),col="red",lty=3,lwd=1)
+abline(v=c(171,168+171),col="green",lty=5,lwd=1)
+dev.off()

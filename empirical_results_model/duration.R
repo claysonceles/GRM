@@ -1,0 +1,17 @@
+
+dt = read.csv("/home/ivan/Dropbox/mestrado/datasets2/dartmouth/1200_sample.csv", head = F, sep = " ")
+model = read.csv("../contacts.csv", head = F, sep = " ")  
+#kkk = hist(bla$V3,breaks=seq(0,max(bla$V3)+60,by=60))
+dt_s = hist(dt$V4,breaks=seq(0,max(dt$V4)+1,by=1))
+dt_p = 1-cumsum(dt_s$counts/sum(dt_s$counts))
+
+model_s = hist(model$V4,breaks=seq(0,max(model$V4)+1,by=1))
+model_p = 1-cumsum(model_s$counts/sum(model_s$counts))
+
+
+png("dur.png")
+plot(dt_s$mids,dt_p, main="Duration",log="xy",xlab="Contact Duration",col="red",xlim = c(1,10000000),ylim=c(0.00000001,1),ylab="P[X>x]")
+points(model_s$mids,model_p)
+legend("topright", c("Dartmouth","GRM"),col = c("red","black"), pch=c(1,1))
+dev.off()
+

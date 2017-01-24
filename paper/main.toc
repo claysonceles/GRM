@@ -1,0 +1,14 @@
+\contentsline {section}{\numberline {I}Introduction}{1}
+\contentsline {section}{\numberline {II}Related Work}{1}
+\contentsline {section}{\numberline {III}Group Mobility: Real World vs Synthetic Models}{1}
+\contentsline {section}{\numberline {IV}GRM Model}{2}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}The intuition}{2}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}Group Meeting Times}{2}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}}Group Sizes}{2}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-D}}Group Members and Social Context}{3}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-E}}Group Meetings Durations}{3}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-E}1}Early Leaving and Late Arrival}{3}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-F}}Implementation and Usage}{3}
+\contentsline {section}{\numberline {V}GRM vs Real Mobility}{3}
+\contentsline {section}{\numberline {VI}Opportunistic Networking in GRM Synthetic Traces}{4}
+\contentsline {section}{\numberline {VII}Conclusion}{4}
